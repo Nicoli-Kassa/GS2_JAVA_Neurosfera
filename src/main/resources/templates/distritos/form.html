@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body>
+<nav th:replace="~{layout :: nav}"></nav>
+
+<div class="container mt-10">
+    <div class="content-wrapper">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="page-title mb-0">
+                <i th:class="${distrito.idDistrito != null ? 'bi bi-pencil' : 'bi bi-building-add'}"></i>
+                <span th:text="${distrito.idDistrito != null ? 'Editar Distrito' : 'Novo Distrito'}"></span>
+            </h2>
+            <a th:href="@{/web/distritos}" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
+        </div>
+
+        <!-- Mensagem de Erro -->
+        <div th:if="${erro}" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle"></i> <span th:text="${erro}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+
+        <!-- Formulário -->
+        <div class="card border-0 shadow-sm mt-5">
+            <div class="card-body">
+                <form th:action="@{/web/distritos}" method="post" th:object="${distrito}">
+                    <!-- ID (hidden) -->
+                    <input type="hidden" th:field="*{idDistrito}" />
+
+                    <!-- Nome do Distrito -->
+                    <div class="mb-3">
+                        <label for="nmDistrito" class="form-label">
+                            Nome do Distrito <span class="text-danger">*</span>
+                        </label>
+                        <input type="text"
+                               class="form-control"
+                               id="nmDistrito"
+                               th:field="*{nmDistrito}"
+                               required
+                               minlength="3"
+                               maxlength="100"
+                               placeholder="Ex: Distrito da Saúde">
+                    </div>
+
+                    <!-- Área Temática -->
+                    <div class="mb-3">
+                        <label for="areaDistrito" class="form-label">
+                            Área Temática <span class="text-danger">*</span>
+                        </label>
+                        <select class="form-select"
+                                id="areaDistrito"
+                                th:field="*{areaDistrito}"
+                                required>
+                            <option value="">Selecione...</option>
+                            <option value="Medicina">Medicina</option>
+                            <option value="Engenharia">Engenharia</option>
+                            <option value="Design">Design</option>
+                            <option value="Inteligência Artificial">Inteligência Artificial</option>
+                            <option value="Sustentabilidade">Sustentabilidade</option>
+                            <option value="Negócios">Negócios</option>
+                            <option value="Ciência de Dados">Ciência de Dados</option>
+                            <option value="Logística">Logística</option>
+                            <option value="Educação">Educação</option>
+                            <option value="Criatividade">Criatividade</option>
+                        </select>
+                    </div>
+
+                    <!-- Descrição -->
+                    <div class="mb-3">
+                        <label for="dsDistrito" class="form-label">Descrição</label>
+                        <textarea class="form-control"
+                                  id="dsDistrito"
+                                  th:field="*{dsDistrito}"
+                                  rows="5"
+                                  maxlength="1000"
+                                  placeholder="Descreva as atividades e objetivos deste distrito..."></textarea>
+                        <small class="form-text text-muted">Máximo 1000 caracteres</small>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="mb-3">
+                        <label for="stDistrito" class="form-label">Status</label>
+                        <select class="form-select"
+                                id="stDistrito"
+                                th:field="*{stDistrito}">
+                            <option th:value="true">Ativo</option>
+                            <option th:value="false">Inativo</option>
+                        </select>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="text-end">
+                        <a th:href="@{/web/distritos}" class="btn btn-secondary me-2">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i> Salvar Distrito
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{layout :: footer}"></footer>
+<div th:replace="~{layout :: scripts}"></div>
+</body>
+</html>

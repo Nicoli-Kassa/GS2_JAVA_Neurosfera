@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body>
+<nav th:replace="~{layout :: nav}"></nav>
+
+<div class="container mt-10">
+    <div class="content-wrapper">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="page-title mb-0">
+                <i th:class="${usuario.idUsuario != null ? 'bi bi-pencil' : 'bi bi-person-plus'}"></i>
+                <span th:text="${usuario.idUsuario != null ? 'Editar Usuário' : 'Novo Usuário'}"></span>
+            </h2>
+            <a th:href="@{/web/usuarios}" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
+        </div>
+
+        <!-- Mensagem de Erro -->
+        <div th:if="${erro}" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle"></i> <span th:text="${erro}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+
+        <!-- Formulário -->
+        <div class="card border-0 shadow-sm mt-5">
+            <div class="card-body">
+                <form th:action="@{/web/usuarios}" method="post" th:object="${usuario}">
+                    <!-- ID (hidden) -->
+                    <input type="hidden" th:field="*{idUsuario}" />
+
+                    <div class="row g-3">
+                        <!-- Nome Completo -->
+                        <div class="col-md-6">
+                            <label for="nmUsuario" class="form-label">
+                                Nome Completo <span class="text-danger">*</span>
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="nmUsuario"
+                                   th:field="*{nmUsuario}"
+                                   required
+                                   minlength="3"
+                                   maxlength="100">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-md-6">
+                            <label for="emailUsuario" class="form-label">
+                                E-mail <span class="text-danger">*</span>
+                            </label>
+                            <input type="email"
+                                   class="form-control"
+                                   id="emailUsuario"
+                                   th:field="*{emailUsuario}"
+                                   required
+                                   maxlength="150">
+                        </div>
+
+                        <!-- Senha -->
+                        <div class="col-md-6">
+                            <label for="senhaUsuario" class="form-label">
+                                Senha
+                                <span th:if="${usuario.idUsuario == null}" class="text-danger">*</span>
+                                <span th:if="${usuario.idUsuario != null}" class="text-muted">(deixe em branco para manter)</span>
+                            </label>
+                            <input type="password"
+                                   class="form-control"
+                                   id="senhaUsuario"
+                                   th:field="*{senhaUsuario}"
+                                   th:required="${usuario.idUsuario == null}"
+                                   minlength="6"
+                                   maxlength="255">
+                            <small class="form-text text-muted">Mínimo 6 caracteres</small>
+                        </div>
+
+                        <!-- Tipo de Usuário -->
+                        <div class="col-md-6">
+                            <label for="tpUsuario" class="form-label">
+                                Tipo de Usuário <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-select"
+                                    id="tpUsuario"
+                                    th:field="*{tpUsuario}"
+                                    required>
+                                <option value="">Selecione...</option>
+                                <option th:each="tipo : ${T(com.neurosfera.repository.TipoUsuario).values()}"
+                                        th:value="${tipo}"
+                                        th:text="${tipo.tipo}">
+                                    Tipo
+                                </option>
+                            </select>
+                        </div>
+
+                        <!-- Idioma -->
+                        <div class="col-md-6">
+                            <label for="idiomaUsuario" class="form-label">Idioma Preferencial</label>
+                            <select class="form-select"
+                                    id="idiomaUsuario"
+                                    th:field="*{idiomaUsuario}">
+                                <option value="PT-BR">Português (Brasil)</option>
+                                <option value="EN">English</option>
+                                <option value="ES">Español</option>
+                                <option value="FR">Français</option>
+                                <option value="DE">Deutsch</option>
+                            </select>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="col-md-6">
+                            <label for="stUsuario" class="form-label">Status</label>
+                            <select class="form-select"
+                                    id="stUsuario"
+                                    th:field="*{stUsuario}">
+                                <option th:value="true">Ativo</option>
+                                <option th:value="false">Inativo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="mt-4 text-end">
+                        <a th:href="@{/web/usuarios}" class="btn btn-secondary me-2">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i> Salvar Usuário
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{layout :: footer}"></footer>
+<div th:replace="~{layout :: scripts}"></div>
+</body>
+</html>

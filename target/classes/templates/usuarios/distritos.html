@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <title>Gerenciar Distritos - Neurosfera</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="page-header">
+        <div>
+            <h1>Gerenciar Distritos</h1>
+            <p class="page-subtitle" th:text="${'Usuário: ' + usuario.nmUsuario}"></p>
+        </div>
+        <a th:href="@{/web/usuarios}" class="btn btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Voltar
+        </a>
+    </div>
+
+    <!-- Mensagens de sucesso ou erro -->
+    <div th:if="${mensagem}" class="alert alert-success">
+        <span th:text="${mensagem}"></span>
+    </div>
+    <div th:if="${erro}" class="alert alert-danger">
+        <span th:text="${erro}"></span>
+    </div>
+
+    <!-- Distritos Inscritos -->
+    <div class="card" style="margin-bottom: 24px;">
+        <div class="card-header">
+            <h2 class="card-title">Distritos Inscritos</h2>
+        </div>
+        <div class="card-content">
+            <div th:if="${distritosInscritos.isEmpty()}" class="text-center" style="padding: 40px; color: #64748b;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 16px; opacity: 0.5;">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <p>Nenhum distrito inscrito ainda</p>
+            </div>
+
+            <div th:unless="${distritosInscritos.isEmpty()}" style="display: grid; gap: 16px;">
+                <div th:each="distrito : ${distritosInscritos}"
+                     style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: #f0fdf4; border-radius: 8px; border: 1px solid #86efac;">
+                    <div>
+                        <h3 style="margin: 0 0 4px 0; font-size: 18px; font-weight: 600; color: #1e293b;" th:text="${distrito.nmDistrito}"></h3>
+                        <p style="margin: 0; color: #64748b; font-size: 14px;">
+                            <span class="badge badge-success" th:text="${distrito.areaDistrito}"></span>
+                        </p>
+                        <p th:if="${distrito.dsDistrito}" style="margin: 8px 0 0 0; color: #475569; font-size: 14px;" th:text="${distrito.dsDistrito}"></p>
+                    </div>
+                    <form th:action="@{/web/usuarios/{usuarioId}/distritos/{distritoId}/desinscrever(usuarioId=${usuario.idUsuario}, distritoId=${distrito.idDistrito})}"
+                          method="post" style="margin: 0;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja desinscrever deste distrito?')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            Desinscrever
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Distritos Disponíveis -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Distritos Disponíveis</h2>
+        </div>
+        <div class="card-content">
+            <div th:if="${distritosDisponiveis.isEmpty()}" class="text-center" style="padding: 40px; color: #64748b;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 16px; opacity: 0.5;">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <p>Todos os distritos já estão inscritos</p>
+            </div>
+
+            <div th:unless="${distritosDisponiveis.isEmpty()}" style="display: grid; gap: 16px;">
+                <div th:each="distrito : ${distritosDisponiveis}"
+                     style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <div>
+                        <h3 style="margin: 0 0 4px 0; font-size: 18px; font-weight: 600; color: #1e293b;" th:text="${distrito.nmDistrito}"></h3>
+                        <p style="margin: 0; color: #64748b; font-size: 14px;">
+                            <span class="badge badge-primary" th:text="${distrito.areaDistrito}"></span>
+                        </p>
+                        <p th:if="${distrito.dsDistrito}" style="margin: 8px 0 0 0; color: #475569; font-size: 14px;" th:text="${distrito.dsDistrito}"></p>
+                    </div>
+                    <form th:action="@{/web/usuarios/{usuarioId}/distritos/{distritoId}/inscrever(usuarioId=${usuario.idUsuario}, distritoId=${distrito.idDistrito})}"
+                          method="post" style="margin: 0;">
+                        <button type="submit" class="btn btn-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            Inscrever
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,407 @@
+{
+	"info": {
+		"name": "Neurosfera API - Global Solution 2025",
+		"_postman_id": "neurosfera-api-2025",
+		"description": "Collection completa da API Neurosfera com todos os endpoints de Usuários e Distritos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Usuários",
+			"item": [
+				{
+					"name": "Listar Todos os Usuários",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Usuário por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Usuário por Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/email/joao@teste.com",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "email", "joao@teste.com"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Usuários por Tipo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/tipo/APRENDIZ",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "tipo", "APRENDIZ"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Usuários Ativos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/ativos",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "ativos"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Usuário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nmUsuario\": \"João Silva\",\n  \"emailUsuario\": \"joao.silva@email.com\",\n  \"senhaUsuario\": \"senha123\",\n  \"tpUsuario\": \"APRENDIZ\",\n  \"idiomaUsuario\": \"PT-BR\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Usuário",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nmUsuario\": \"João Silva Atualizado\",\n  \"emailUsuario\": \"joao.silva.novo@email.com\",\n  \"senhaUsuario\": \"novaSenha123\",\n  \"tpUsuario\": \"INSTRUTOR\",\n  \"idiomaUsuario\": \"EN-US\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Status do Usuário",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1/status?ativo=false",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1", "status"],
+							"query": [
+								{
+									"key": "ativo",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Idioma do Usuário",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1/idioma?idioma=EN-US",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1", "idioma"],
+							"query": [
+								{
+									"key": "idioma",
+									"value": "EN-US"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Usuário",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inscrever Usuário em Distrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1/distritos/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1", "distritos", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Desinscrever Usuário de Distrito",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1/distritos/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1", "distritos", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Distritos do Usuário",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1/distritos",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1", "distritos"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Distritos",
+			"item": [
+				{
+					"name": "Listar Todos os Distritos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/distritos",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "distritos"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Distrito por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/distritos/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "distritos", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Distritos por Área",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/distritos/area/Tecnologia",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "distritos", "area", "Tecnologia"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Distritos Ativos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/distritos/ativos",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "distritos", "ativos"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Distrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nmDistrito\": \"Distrito de Tecnologia\",\n  \"areaDistrito\": \"IA\",\n  \"dsDistrito\": \"Distrito focado em Inteligência Artificial e Machine Learning\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/distritos",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "distritos"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Distrito",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nmDistrito\": \"Distrito de IA Avançada\",\n  \"areaDistrito\": \"IA\",\n  \"dsDistrito\": \"Distrito focado em IA, Deep Learning e Neural Networks\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/distritos/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "distritos", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Status do Distrito",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/distritos/1/status?ativo=false",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "distritos", "1", "status"],
+							"query": [
+								{
+									"key": "ativo",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Distrito",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/distritos/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "distritos", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exemplos de Erros",
+			"item": [
+				{
+					"name": "Erro 404 - Usuário Não Encontrado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/999",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "999"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Erro 409 - Email Já Cadastrado",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nmUsuario\": \"Teste\",\n  \"emailUsuario\": \"joao.silva@email.com\",\n  \"senhaUsuario\": \"senha123\",\n  \"tpUsuario\": \"APRENDIZ\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Erro 409 - Usuário Já Inscrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1/distritos/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1", "distritos", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

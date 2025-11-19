@@ -1,0 +1,4 @@
+service\DistritoServiceTest.class
+service\UsuarioServiceTest.class
+com\neurosfera\neurosfera_api\NeurosferaApiApplicationTests.class
+com\neurosfera\neurosfera_api\GlobalExceptionHandlerTest.class

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body class="bg-black text-white">
+<nav th:replace="~{layout :: nav}"></nav>
+
+<main class="page">
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div>
+                <h1 class="hero-title">
+                    Administre a<br>
+                    <span class="hero-gradient">Neurosfera</span><br>
+                    em um único lugar.
+                </h1>
+
+                <p class="hero-sub">
+                    A Neurosfera é uma cidade virtual pensada para educação e trabalho imersivo.
+                    Este painel administra usuários, distritos e papéis usados nas experiências VR.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#painel" class="btn-primary">Ver painel</a>
+                    <a href="#cidade" class="btn-ghost">Cidade das Habilidades</a>
+                </div>
+            </div>
+
+            <div class="hero-box">
+                <p class="hero-box-kicker">VISÃO GERAL DA PLATAFORMA</p>
+                <p class="hero-box-text">
+                    A Neurosfera é uma cidade virtual que une educação, trabalho e tecnologia em
+                    realidade virtual.
+                </p>
+                <p class="hero-box-text hero-box-muted">
+                    Este painel administrativo permite gerenciar toda a infraestrutura da cidade:
+                    cadastrar usuários, configurar distritos temáticos e preparar a base de dados
+                    para as experiências imersivas em VR.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INDICADORES -->
+    <section id="painel" class="section">
+        <div class="indicators">
+            <div class="indicator">
+                <p class="indicator-label">USUÁRIOS CADASTRADOS</p>
+                <p class="indicator-value" th:text="${totalUsuarios}">1.247</p>
+                <p class="indicator-desc">Perfis ativos na plataforma</p>
+                <a th:href="@{/web/usuarios}" class="indicator-link">Ver todos os perfis →</a>
+            </div>
+
+            <div class="indicator">
+                <p class="indicator-label">DISTRITOS ATIVOS</p>
+                <p class="indicator-value" th:text="${totalDistritos}">6</p>
+                <p class="indicator-desc">Ambientes temáticos configurados</p>
+                <a th:href="@{/web/distritos}" class="indicator-link">Ver distritos →</a>
+            </div>
+
+            <div class="indicator">
+                <p class="indicator-label">USUÁRIOS ATIVOS</p>
+                <p class="indicator-value" th:text="${usuariosAtivos}">892</p>
+                <p class="indicator-desc">Conectados nas últimas 24h</p>
+                <a th:href="@{/web/usuarios}" class="indicator-link">Ver atividade →</a>
+            </div>
+
+            <div class="indicator">
+                <p class="indicator-label">APRENDIZES</p>
+                <p class="indicator-value" th:text="${totalAprendizes}">623</p>
+                <p class="indicator-desc">Em trilhas de capacitação</p>
+                <a th:href="@{/web/usuarios}" class="indicator-link">Ver progressão →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- O QUE É A NEUROSFERA -->
+    <section class="section">
+        <div class="info-grid">
+            <div>
+                <h2 class="info-title">O que é a Neurosfera?</h2>
+                <p class="info-text">
+                    A Neurosfera é uma cidade virtual que une educação, trabalho e tecnologia em
+                    realidade virtual. Em vez de apenas consumir conteúdo, os usuários atuam em cenários
+                    simulados, tomam decisões, trabalham em equipe e aprendem na prática.
+                </p>
+                <p class="info-text">
+                    A plataforma recria ambientes profissionais realistas onde estudantes e profissionais
+                    desenvolvem competências técnicas e comportamentais através de experiências imersivas.
+                </p>
+            </div>
+
+            <div class="panel-card">
+                <p class="panel-kicker">ESTE PAINEL PERMITE</p>
+                <ul class="panel-list">
+                    <li>Cadastrar e organizar perfis de usuários</li>
+                    <li>Configurar distritos temáticos</li>
+                    <li>Preparar base de dados para experiências VR</li>
+                    <li>Dar visão geral dos principais indicadores</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CIDADE DAS HABILIDADES -->
+    <section id="cidade" class="section">
+        <div class="section-header">
+            <h2 class="info-title">Cidade das Habilidades</h2>
+            <p class="section-sub">
+                A Neurosfera é dividida em distritos temáticos, cada um representando um contexto de
+                atuação e um conjunto de competências específicas.
+            </p>
+        </div>
+
+        <div class="districts-grid">
+            <div class="district-card">
+                <div class="district-icon">♥</div>
+                <h3 class="district-title">Saúde &amp; Simulação Clínica</h3>
+                <p class="district-text">
+                    Ambientes hospitalares, clínicas e centros de saúde para treinamento médico e de enfermagem.
+                </p>
+            </div>
+
+            <div class="district-card">
+                <div class="district-icon">⚙</div>
+                <h3 class="district-title">Engenharia &amp; Operações</h3>
+                <p class="district-text">
+                    Fábricas, linhas de produção e ambientes industriais para processos técnicos complexos.
+                </p>
+            </div>
+
+            <div class="district-card">
+                <div class="district-icon">⌘</div>
+                <h3 class="district-title">Tecnologia &amp; Inovação</h3>
+                <p class="district-text">
+                    Laboratórios de desenvolvimento, escritórios tech e espaços de prototipagem digital.
+                </p>
+            </div>
+
+            <div class="district-card">
+                <div class="district-icon">▢</div>
+                <h3 class="district-title">Negócios &amp; Gestão</h3>
+                <p class="district-text">
+                    Escritórios corporativos, salas de reunião e ambientes de tomada de decisão estratégica.
+                </p>
+            </div>
+
+            <div class="district-card">
+                <div class="district-icon">▤</div>
+                <h3 class="district-title">Educação &amp; Treinamento</h3>
+                <p class="district-text">
+                    Salas de aula virtuais, bibliotecas e espaços de aprendizagem colaborativa.
+                </p>
+            </div>
+
+            <div class="district-card">
+                <div class="district-icon">❧</div>
+                <h3 class="district-title">Sustentabilidade &amp; Impacto</h3>
+                <p class="district-text">
+                    Projetos ambientais, energia renovável e iniciativas de impacto social.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRÓXIMOS PASSOS / AÇÕES RÁPIDAS -->
+    <section class="section">
+        <div class="next-actions-grid">
+            <div class="next-card">
+                <p class="panel-kicker">PRÓXIMOS PASSOS</p>
+                <p class="info-text">
+                    A plataforma está em constante evolução para proporcionar experiências cada vez mais imersivas e eficazes.
+                </p>
+                <ul class="next-list">
+                    <li>Trilhas de aprendizagem personalizadas por distrito</li>
+                    <li>Dashboards de desempenho em tempo real</li>
+                    <li>Integração com ambientes 3D nativos</li>
+                    <li>Sistema de badges e certificações</li>
+                    <li>Analytics avançado de comportamento</li>
+                </ul>
+            </div>
+
+            <div class="actions-card">
+                <p class="panel-kicker">AÇÕES RÁPIDAS</p>
+
+                <a th:href="@{/web/usuarios/new}" class="action-btn">
+                    <div class="action-left">
+                        <span class="action-icon">👤</span>
+                        <span class="action-text">Criar novo usuário</span>
+                    </div>
+                    <span class="action-plus">+</span>
+                </a>
+
+                <a th:href="@{/web/distritos/new}" class="action-btn">
+                    <div class="action-left">
+                        <span class="action-icon">🗺</span>
+                        <span class="action-text">Criar novo distrito</span>
+                    </div>
+                    <span class="action-plus">+</span>
+                </a>
+
+                <a th:href="@{/h2-console}" target="_blank" class="action-btn">
+                    <div class="action-left">
+                        <span class="action-icon">🗄</span>
+                        <span class="action-text">Acessar console H2</span>
+                    </div>
+                    <span class="action-plus">+</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer th:replace="~{layout :: footer}"></footer>
+<div th:replace="~{layout :: scripts}"></div>
+</body>
+</html>

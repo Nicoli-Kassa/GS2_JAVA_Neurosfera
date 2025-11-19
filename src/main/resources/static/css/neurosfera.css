@@ -1,0 +1,510 @@
+/* ====== BASE ABSOLUTA ====== */
+body,
+.bg-black {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+.text-white {
+    color: #ffffff !important;
+}
+
+.page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem 3rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: -0.01em;
+}
+
+/* ====== NAVBAR ====== */
+
+.neuro-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #000000;
+    border-bottom: 1px solid #18181b;
+    z-index: 50;
+}
+
+.nav-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    font-size: 1.15rem;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.brand-sub {
+    font-size: 0.65rem;
+    color: #a1a1aa;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #a1a1aa;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+    background: #000;
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    border-color: #27272a;
+    background: #111111;
+}
+
+/* ====== HERO ====== */
+
+.hero {
+    padding: 3.5rem 0 3rem;
+    margin-top: 3rem; /* compensa navbar */
+}
+
+.hero-grid {
+    display: grid;
+    gap: 3rem;
+}
+
+@media (min-width: 900px) {
+    .hero-grid {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+        align-items: center;
+    }
+}
+
+.hero-title {
+    font-size: clamp(3rem, 4.5vw + 1rem, 4.2rem);
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+}
+
+.hero-gradient {
+    color: #a855f7;
+}
+
+.hero-sub {
+    font-size: 1rem;
+    color: #e4e4e7;
+    max-width: 36rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.btn-primary,
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.8rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: #7c3aed;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #6d28d9;
+}
+
+.btn-ghost {
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #27272a;
+}
+
+.btn-ghost:hover {
+    background: #111111;
+}
+
+/* BOX DIREITA */
+
+.hero-box {
+    border-radius: 24px;
+    border: 1px solid #27272a;
+    background: #050509;
+    padding: 2rem 2.2rem;
+}
+
+.hero-box-kicker {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #a1a1aa;
+    margin-bottom: 1rem;
+}
+
+.hero-box-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #f4f4f5;
+    margin-bottom: 0.8rem;
+}
+
+.hero-box-muted {
+    color: #a1a1aa;
+}
+
+/* ====== SEÇÕES GENÉRICAS ====== */
+
+.section {
+    padding: 3rem 0;
+}
+
+/* ====== INDICADORES ====== */
+
+.indicators {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid #18181b;
+    border-left: 1px solid #18181b;
+}
+
+@media (min-width: 900px) {
+    .indicators {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.indicator {
+    padding: 2rem;
+    border-right: 1px solid #18181b;
+    border-bottom: 1px solid #18181b;
+    transition: background 0.2s ease;
+}
+
+.indicator:hover {
+    background: #050509;
+}
+
+.indicator-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #a1a1aa;
+    margin-bottom: 0.7rem;
+}
+
+.indicator-value {
+    font-size: 2.3rem;
+    font-weight: 300;
+    margin-bottom: 0.4rem;
+}
+
+.indicator-desc {
+    font-size: 0.85rem;
+    color: #a1a1aa;
+    margin-bottom: 0.7rem;
+}
+
+.indicator-link {
+    font-size: 0.78rem;
+    color: #c4b5fd;
+    text-decoration: none;
+}
+
+/* ====== O QUE É A NEUROSFERA ====== */
+
+.info-grid {
+    display: grid;
+    gap: 2.5rem;
+}
+
+@media (min-width: 950px) {
+    .info-grid {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+    }
+}
+
+.info-title {
+    font-size: 2.1rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.info-text {
+    font-size: 0.95rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+}
+
+.panel-card {
+    border-radius: 24px;
+    border: 1px solid #27272a;
+    background: #050509;
+    padding: 2rem 2.4rem;
+}
+
+.panel-kicker {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #a1a1aa;
+    margin-bottom: 1.4rem;
+}
+
+.panel-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.panel-list li {
+    position: relative;
+    font-size: 0.95rem;
+    color: #e4e4e7;
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+.panel-list li::before {
+    content: "";
+    position: absolute;
+    left: -0.8rem;
+    top: 0.55rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: #a855f7;
+}
+
+/* ====== CIDADE DAS HABILIDADES ====== */
+
+.section-header {
+    margin-bottom: 1.8rem;
+}
+
+.section-sub {
+    font-size: 0.95rem;
+    color: #e4e4e7;
+    max-width: 40rem;
+}
+
+.districts-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    border-top: 1px solid #27272a;
+    border-left: 1px solid #27272a;
+}
+
+@media (min-width: 900px) {
+    .districts-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.district-card {
+    padding: 2.2rem 2.1rem;
+    border-right: 1px solid #27272a;
+    border-bottom: 1px solid #27272a;
+}
+
+.district-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 1px solid #a855f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a855f7;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.district-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.district-text {
+    font-size: 0.9rem;
+    color: #e4e4e7;
+    line-height: 1.6;
+}
+
+/* ====== PRÓXIMOS PASSOS / AÇÕES RÁPIDAS ====== */
+
+.next-actions-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+@media (min-width: 950px) {
+    .next-actions-grid {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
+    }
+}
+
+.next-card {
+    border-radius: 24px;
+    border: 1px solid #27272a;
+    background: #050509;
+    padding: 2.2rem 2.4rem;
+}
+
+.next-list {
+    list-style: none;
+    margin: 1.2rem 0 0;
+    padding-left: 1.2rem;
+}
+
+.next-list li {
+    position: relative;
+    font-size: 0.95rem;
+    color: #e4e4e7;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.next-list li::before {
+    content: "⌁";
+    position: absolute;
+    left: -1rem;
+    top: 0.1rem;
+    font-size: 0.95rem;
+    color: #a855f7;
+}
+
+.actions-card {
+    border-radius: 24px;
+    border: 1px solid #27272a;
+    background: #050509;
+    padding: 2.2rem 2.4rem;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    margin-top: 0.75rem;
+    border-radius: 999px;
+    border: 1px solid #27272a;
+    background: #000000;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    border-color: #3f3f46;
+    background: #111111;
+}
+
+.action-left {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.action-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    border: 1px solid #3f3f46;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.action-plus {
+    font-size: 1.2rem;
+    color: #e4e4e7;
+}
+
+/* ====== FOOTER ====== */
+
+.neuro-footer {
+    border-top: 1px solid #18181b;
+    margin-top: 3rem;
+}
+
+.footer-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (min-width: 900px) {
+    .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.footer-main {
+    font-size: 0.9rem;
+    color: #e4e4e7;
+}
+
+.footer-sub {
+    font-size: 0.8rem;
+    color: #a1a1aa;
+}
+
+.mt-6 {
+  margin-top: 4rem !important; /* 64px */
+}
+
+.mt-7 {
+  margin-top: 5rem !important; /* 80px */
+}
+
+.mt-8 {
+  margin-top: 6rem !important; /* 96px */
+}
+
+.mt-10 {
+  margin-top: 8rem !important; /* 128px */
+}
+

@@ -1,0 +1,442 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-11-19T18:49:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_usuarios_listar",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios",
+      "name": "Listar Todos os Usuários",
+      "description": "Retorna todos os usuários cadastrados",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1700000000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_buscar_id",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios/1",
+      "name": "Buscar Usuário por ID",
+      "description": "Busca um usuário específico pelo ID",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699999000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_buscar_email",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios/email/joao@teste.com",
+      "name": "Buscar Usuário por Email",
+      "description": "Busca um usuário pelo email",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699998000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_buscar_tipo",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios/tipo/APRENDIZ",
+      "name": "Buscar Usuários por Tipo",
+      "description": "Filtra usuários por tipo (APRENDIZ, INSTRUTOR, CRIADOR, EMPRESA, ADMINISTRADOR)",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699997000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_ativos",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios/ativos",
+      "name": "Listar Usuários Ativos",
+      "description": "Retorna apenas usuários com status ativo",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699996000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_criar",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios",
+      "name": "Criar Usuário",
+      "description": "Cadastra um novo usuário",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nmUsuario\": \"João Silva\",\n  \"emailUsuario\": \"joao.silva@email.com\",\n  \"senhaUsuario\": \"senha123\",\n  \"tpUsuario\": \"APRENDIZ\",\n  \"idiomaUsuario\": \"PT-BR\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1699995000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_atualizar",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios/1",
+      "name": "Atualizar Usuário",
+      "description": "Atualiza dados de um usuário existente",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nmUsuario\": \"João Silva Atualizado\",\n  \"emailUsuario\": \"joao.novo@email.com\",\n  \"senhaUsuario\": \"novaSenha123\",\n  \"tpUsuario\": \"INSTRUTOR\",\n  \"idiomaUsuario\": \"EN-US\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1699994000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_status",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios/1/status",
+      "name": "Alterar Status",
+      "description": "Ativa ou desativa um usuário",
+      "method": "PATCH",
+      "body": {},
+      "parameters": [
+        {
+          "name": "ativo",
+          "value": "false"
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699993000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_idioma",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios/1/idioma",
+      "name": "Alterar Idioma",
+      "description": "Altera o idioma do usuário (PT-BR, EN-US, ES)",
+      "method": "PATCH",
+      "body": {},
+      "parameters": [
+        {
+          "name": "idioma",
+          "value": "EN-US"
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699992000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_deletar",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios/1",
+      "name": "Deletar Usuário",
+      "description": "Remove um usuário do sistema",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699991000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_inscrever",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios/1/distritos/1",
+      "name": "Inscrever em Distrito",
+      "description": "Inscreve o usuário em um distrito temático",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699990000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_desinscrever",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios/1/distritos/1",
+      "name": "Desinscrever de Distrito",
+      "description": "Remove a inscrição do usuário em um distrito",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699989000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_usuarios_listar_distritos",
+      "parentId": "fld_usuarios",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/usuarios/1/distritos",
+      "name": "Listar Distritos do Usuário",
+      "description": "Retorna todos os distritos em que o usuário está inscrito",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699988000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_distritos_listar",
+      "parentId": "fld_distritos",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/distritos",
+      "name": "Listar Todos os Distritos",
+      "description": "Retorna todos os distritos cadastrados",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1700000000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_distritos_buscar_id",
+      "parentId": "fld_distritos",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/distritos/1",
+      "name": "Buscar Distrito por ID",
+      "description": "Busca um distrito específico pelo ID",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699999000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_distritos_buscar_area",
+      "parentId": "fld_distritos",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/distritos/area/IA",
+      "name": "Buscar Distritos por Área",
+      "description": "Filtra distritos por área (Medicina, Engenharia, Design, IA, etc)",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699998000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_distritos_ativos",
+      "parentId": "fld_distritos",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/distritos/ativos",
+      "name": "Listar Distritos Ativos",
+      "description": "Retorna apenas distritos com status ativo",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699997000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_distritos_criar",
+      "parentId": "fld_distritos",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/distritos",
+      "name": "Criar Distrito",
+      "description": "Cadastra um novo distrito temático",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nmDistrito\": \"Distrito de IA\",\n  \"areaDistrito\": \"IA\",\n  \"dsDistrito\": \"Distrito focado em Inteligência Artificial e Machine Learning\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1699996000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_distritos_atualizar",
+      "parentId": "fld_distritos",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/distritos/1",
+      "name": "Atualizar Distrito",
+      "description": "Atualiza dados de um distrito existente",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nmDistrito\": \"Distrito de IA Avançada\",\n  \"areaDistrito\": \"IA\",\n  \"dsDistrito\": \"Distrito focado em Deep Learning e Neural Networks\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1699995000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_distritos_status",
+      "parentId": "fld_distritos",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/distritos/1/status",
+      "name": "Alterar Status",
+      "description": "Ativa ou desativa um distrito",
+      "method": "PATCH",
+      "body": {},
+      "parameters": [
+        {
+          "name": "ativo",
+          "value": "false"
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699994000000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_distritos_deletar",
+      "parentId": "fld_distritos",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "url": "{{ _.baseUrl }}/api/distritos/1",
+      "name": "Deletar Distrito",
+      "description": "Remove um distrito do sistema",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1699993000000,
+      "_type": "request"
+    },
+    {
+      "_id": "fld_usuarios",
+      "parentId": "wrk_neurosfera",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "name": "Usuários",
+      "description": "Endpoints para gerenciamento de usuários",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1700000000000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_distritos",
+      "parentId": "wrk_neurosfera",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "name": "Distritos",
+      "description": "Endpoints para gerenciamento de distritos",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1699000000000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_neurosfera",
+      "parentId": null,
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "name": "Neurosfera API - Global Solution 2025",
+      "description": "API completa para plataforma de Upskilling/Reskilling",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_base",
+      "parentId": "wrk_neurosfera",
+      "modified": 1700000000000,
+      "created": 1700000000000,
+      "name": "Base Environment",
+      "data": {
+        "baseUrl": "http://localhost:8080"
+      },
+      "dataPropertyOrder": {
+        "&": ["baseUrl"]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1700000000000,
+      "_type": "environment"
+    }
+  ]
+}
