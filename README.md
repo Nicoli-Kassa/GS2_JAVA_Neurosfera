@@ -12,11 +12,11 @@
 | **Isabelle Dallabeneta Carlesso** | **RM 554592** | 
 | **Nicoli Amy Kassa**              | **RM 559104** | 
 
-### Disciplina
+**Curso:** Engenharia de Software
 
-**Domain Driven Design – Java**
+**Disciplina:** Domain Driven Design – Java
 
-**FIAP - Global Solution 2025**
+**Professor:** Salatiel Marinho
 
 **Tema:** O Futuro do Trabalho
 
